@@ -1,0 +1,131 @@
+Cisco IOS Commands – NTTT Data Kenya
+
+NB/= **The command on the switches are the same across all SW, except for the hostname that differs per Switch.
+
+🔹 Switch Configuration (Access & Distribution)
+
+#############################################################
+enable secret VLAN
+!
+# VLAN Creation
+!
+Switch(config)# vlan 10
+Switch(config-vlan)# name HR
+Switch(config)# vlan 20
+Switch(config-vlan)# name FINANCE
+Switch(config)# vlan 30
+Switch(config-vlan)# name SALES
+Switch(config)# vlan 40
+Switch(config-vlan)# name NOC
+Switch(config)# vlan 50
+Switch(config-vlan)# name HELP_DESK
+Switch(config)# vlan 60
+Switch(config-vlan)# name DATA_CENTER
+!
+
+# Access Ports
+Switch(config)# interface fa0/2
+Switch(config-if)# switchport mode access
+Switch(config-if)# switchport access vlan 10
+!
+Switch(config)# interface fa0/3
+Switch(config-if)# switchport mode access
+Switch(config-if)# switchport access vlan 20
+!
+Switch(config)# interface fa0/3
+Switch(config-if)# switchport mode access
+Switch(config-if)# switchport access vlan 30
+!
+Switch(config)# interface fa0/4
+Switch(config-if)# switchport mode access
+Switch(config-if)# switchport access vlan 40
+!
+Switch(config)# interface fa0/5
+Switch(config-if)# switchport mode access
+Switch(config-if)# switchport access vlan 50
+!
+Switch(config)# interface fa0/6
+Switch(config-if)# switchport mode access
+Switch(config-if)# switchport access vlan 60
+!
+
+# Trunk Ports
+
+Switch(config)# interface fa0/1 
+Switch(config-if)# switchport mode trunk
+Switch(config-if)# switchport trunk allowed vlan 10,20,30,40,50,60
+Switch(config-if)# switchport trunk native vlan 100
+!
+
+######################################################################
+
+🔹 Router-on-a-Stick (ROAS)
+enable secret VLAN
+hostname WORKSHOP-EDGE-RTr  ## or ##  ISP-EDGE-R2
+!
+Router(config)# interface g0/0.30
+Router(config-subif)# encapsulation dot1Q 10
+Router(config-subif)# ip address 10.10.10.1 255.255.255.0
+
+!
+Router(config)# interface g0/0.20
+Router(config-subif)# encapsulation dot1Q 20
+Router(config-subif)# ip address 20.19.3.1 255.255.255.0
+
+!
+Router(config)# interface g0/0.10
+Router(config-subif)# encapsulation dot1Q 30
+Router(config-subif)# ip address 220.20.20.1 255.255.255.0
+
+!
+Router(config)# interface g0/0.50
+Router(config-subif)# encapsulation dot1Q 40
+Router(config-subif)# ip address 65.110.0.1 255.255.255.0
+
+!
+Router(config)# interface g0/0.60
+Router(config-subif)# encapsulation dot1Q 50
+Router(config-subif)# ip address 144.10.30.1 255.255.255.0
+
+!
+Router(config)# interface g0/0.40
+Router(config-subif)# encapsulation dot1Q 60
+Router(config-subif)# ip address 176.4.0.1 255.255.255.0
+
+###################################################################
+
+🔹 Routing & Security
+
+enable secret VLAN
+hostname WORKSHOP-EDGE-RTr
+!
+interface Loopback0
+Router(config)# ip address 1.1.1.1 255.255.255.255
+!
+Router(config)# interface s0/3/0
+Router(config-if)# ip address 131.9.12.23 255.255.0.0
+Router(config-if)# encapsulation ppp
+Router(config-if)# clock rate 64000
+
+Router(config)# router ospf 1
+Router(config)# network 131.9.0.0 0.0.255.255 area 0
+
+#########################################################
+
+ON ISP-EDGE Router
+!
+enable secret VLAN
+hostname ISP-EDGE-R2
+!
+interface Loopback0
+Router(config)# ip address 2.2.2.2 255.255.255.255
+ !
+Router(config)# interface s0/3/0
+Router(config-if)# ip address 131.9.12.2 255.255.0.0
+Router(config-if)# encapsulation ppp
+!
+Router(config)# router ospf 1
+Router(config)# network 131.9.0.0 0.0.255.255 area 0
+
+# Default Route
+Router(config)# ip route 0.0.0.0 0.0.0.0 210.40.40.1
