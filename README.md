@@ -2,7 +2,7 @@
 
 Summary
 
-This project presents a sophisticated enterprise-grade network design for **NTTT Data Kenya**. The architecture demonstrates not only technical proficiency in Cisco networking but also the pragmatic principles of **redundancy, scalability, and cost efficiency** essential for real-world enterprise deployments.
+This project presents a sophisticated enterprise-grade network design for **NTTT Data Kenya**. The architecture demonstrates not only technical proficiency in Cisco networking but also the pragmatic principles of **redundancy, scalability, and cost efficiency**; essential for real-world enterprise deployments.
 
 The design includes multiple departments **(Sales, Finance, HR, Help Desk, Data Center, and Network Operations Center)** with logical VLAN segmentation, trunking, secure routing to the ISP, and robust Layer 3 switching for inter-VLAN routing. Security is elevated using MD5 authentication on routing protocols, while redundancy and resilience are factored into the distribution-core-access hierarchy.
 
@@ -24,13 +24,13 @@ This configuration highlights a professional yet creative approach, balancing th
 
 **Technical Highlights**
 
-Trunk and Access Port Design: Access ports tied to specific VLANs; trunks interconnect switches for VLAN propagation.
+**Trunk and Access Port Design**: Access ports tied to specific VLANs; trunks interconnect switches for VLAN propagation.
 
-VLANs: Logical segmentation for Sales, Finance, HR, Data Center, Help Desk, and Operations Center.
+**VLANs**: Logical segmentation for Sales, Finance, HR, Data Center, Help Desk, and Operations Center.
 
-ROAS (Router-on-a-Stick): Sub-interfaces configured for each VLAN on the router.
+**ROAS (Router-on-a-Stick)**: Sub-interfaces configured for each VLAN on the router.
 
-Inter-VLAN Routing: Layer 3 Switch SVIs with IP routing enabled.
+**Inter-VLAN Routing**: Layer 3 Switch SVIs with IP routing enabled.
 
 MD5 Authentication: Secure routing sessions with neighbor routers.
 
