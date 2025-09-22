@@ -1,6 +1,6 @@
 **NTTT DATA KENYA** – Enterprise Network Topology
 
-Summary
+**Summary**
 
 This project presents a sophisticated enterprise-grade network design for **NTTT Data Kenya**. The architecture demonstrates not only technical proficiency in Cisco networking but also the pragmatic principles of **redundancy, scalability, and cost efficiency**; essential for real-world enterprise deployments.
 
@@ -32,22 +32,22 @@ This configuration highlights a professional yet creative approach, balancing th
 
 **Inter-VLAN Routing**: Layer 3 Switch SVIs with IP routing enabled.
 
-MD5 Authentication: Secure routing sessions with neighbor routers.
+**MD5 Authentication**: Secure routing sessions with neighbor routers.
 
-Default Routes: Gateway to ISP for external connectivity.
+**Default Routes**: Gateway to ISP for external connectivity.
 
-IP Subnetting: Optimized addressing plan for departmental isolation.
+**IP Subnetting**: Optimized addressing plan for departmental isolation.
 
-Serial Interface: Configured serial interfaces with a clockrate of 64000 at the DCE and PPP encapsulation; this boosts the performance and efficiency. 
+**Serial Interface**: Configured serial interfaces with a clockrate of 64000 at the DCE and PPP encapsulation; this boosts the performance and efficiency. 
 
 
 **Creative additions I added**
 
-HSRP on core SVIs for gateway redundancy (shows enterprise awareness).
+**HSRP** on core SVIs for gateway redundancy (shows enterprise awareness).
 
 EtherChannel (LACP) between Core and Distribution to increase throughput and simplify STP.
 
-IP SLA + Track on ISP links so default route failover is graceful (useful for recruiters wanting high‑availability thinking).
+**IP SLA + Track** on ISP links so default route failover is graceful (useful for recruiters wanting high‑availability thinking).
 
 ACL templates for east‑west and internet filtering with explicit allow/deny rationale—practical and interview‑ready.
 
@@ -60,8 +60,8 @@ This project is more than a lab topology — it’s a case study in enterprise n
 
 For recruiters: this showcases not only the ability to configure devices but also to **design resilient, efficient, and cost-effective networks** in line with modern enterprise demands.
 
-AUTHOR - BRADLEY GIOVANNI
+AUTHOR - **BRADLEY GIOVANNI** | **ASPIRING NEWTORK ENGINEER**  |  **NETWORK ADMINISTRATOR**  |
 
-EMAIL - giovanniibradley@gmail.com
+EMAIL - **giovanniibradley@gmail.com**
 
  [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/bradley-giovanniii293) 
